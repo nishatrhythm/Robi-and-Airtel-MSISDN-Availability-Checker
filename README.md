@@ -14,13 +14,13 @@ This repository contains scripts for checking the availability of Robi and Airte
 ## Scripts
 ### 1. `script_robi.py`
 - **Purpose:** Checks MSISDN availability for Robi numbers.
-- **Base Prefix:** `8801886`
+- **Base Prefix:** `88018`
 - **Custom Fixed Digits:** Allows defining specific positions for fixed digits in the number.
 - **File Output:** Results saved as `available_numbers_robi_YYYYMMDD_HHMMSS.txt`
 
 ### 2. `script_airtel.py`
 - **Purpose:** Checks MSISDN availability for Airtel numbers.
-- **Base Prefix:** `8801601`
+- **Base Prefix:** `88016`
 - **Custom Fixed Digits:** Allows defining specific positions for fixed digits in the number.
 - **File Output:** Results saved as `available_numbers_airtel_YYYYMMDD_HHMMSS.txt`
 

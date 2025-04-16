@@ -8,7 +8,7 @@ from collections import deque
 init()
 
 class RobiNumberChecker:
-    def __init__(self, base_number="8801886", fixed_positions=None):
+    def __init__(self, base_number="88018", fixed_positions=None):
         self.base_number = base_number
         self.url = "https://da-api.robi.com.bd/da-nll/free-msisdn/get-msisdn-list"
         self.headers = {
@@ -71,17 +71,16 @@ class RobiNumberChecker:
         return False
 
     def generate_numbers(self):
-        remaining_digits = 6 - len(self.fixed_positions)
-        positions = sorted(self.fixed_positions.keys())
+        remaining_digits = 8 - len(self.fixed_positions)
         
         for combo in itertools.product(range(10), repeat=remaining_digits):
-            number = list('000000')
+            number = list('00000000')
             
             for pos, val in self.fixed_positions.items():
                 number[pos] = str(val)
             
             current_combo_index = 0
-            for i in range(6):
+            for i in range(8):
                 if i not in self.fixed_positions:
                     number[i] = str(combo[current_combo_index])
                     current_combo_index += 1
@@ -125,12 +124,14 @@ class RobiNumberChecker:
 
 if __name__ == "__main__":
     fixed_positions = {
-        # 0: 8,    # First digit of the last 6 digits
+        # 0: 8,    # First digit of the last 8 digits
         # 1: 6,    # Second digit
         # 2: 3,    # Third digit
         # 3: 0,    # Fourth digit
-        4: 0,    # Fifth digit
-        5: 0     # Sixth digit
+        # 4: 0,    # Fifth digit
+        # 5: 0,    # Sixth digit
+        # 6: 0,    # Seventh digit
+        # 7: 0     # Eighth digit
     }
     
     checker = RobiNumberChecker(fixed_positions=fixed_positions)
